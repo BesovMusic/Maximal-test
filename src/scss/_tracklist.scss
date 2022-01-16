@@ -1,0 +1,62 @@
+.tracklist {
+	&__track {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 60px;
+		border-bottom: 1px solid #cacaca;
+		padding: 0px 10px;
+		&:hover {
+			background-color: #fff;
+		}
+		&--active {
+			background-color: #fff;
+		}
+	}
+	&__left,
+	&__right {
+		display: flex;
+		gap: 15px;
+	}
+
+	&__play {
+		width: 40px;
+		height: 40px;
+		border: none;
+		border-radius: 2px;
+		padding: 0;
+
+		color: #fff;
+		font-size: 35px;
+
+		background-image: url(../img/sidebar-collections/matryoshka.jpg);
+		background-size: cover;
+
+		cursor: pointer;
+	}
+	&__info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	&__author {
+		font-weight: 700;
+	}
+	&__duration {
+		display: flex;
+		align-items: center;
+	}
+	&__download {
+		display: flex;
+		align-items: center;
+		border: none;
+		font-size: 25px;
+		background: transparent;
+		color: #8f5aff;
+		transition: 0.2s ease transform;
+		cursor: pointer;
+		&:hover {
+			transform: scale(1.2);
+		}
+	}
+}

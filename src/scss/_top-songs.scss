@@ -1,0 +1,16 @@
+.top-songs {
+	display: flex;
+	justify-content: center;
+	width: 75%;
+
+	&__wrapper {
+		width: 80%;
+	}
+	& h1 {
+		margin: 0;
+	}
+	&__new-tracks {
+		display: flex;
+		align-items: center;
+	}
+}

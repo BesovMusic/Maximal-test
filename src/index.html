@@ -16,7 +16,7 @@
 				<a href="#" class="main-nav__logo"
 					><img src="./img/logo.jpg" alt="muztv"
 				/></a>
-				<div class="search">
+				<div class="main-nav__search-wrapper">
 					<label for="search"
 						><span class="mdi mdi-magnify"></span
 					></label>
@@ -27,9 +27,157 @@
 						id="search"
 					/>
 				</div>
-				<a href="#" class="main-nav__item">Hot</a>
-				<a href="#" class="main-nav__item">New</a>
+				<a href="#" class="main-nav__item"
+					><img src="./img/nav-icons/hot.png" alt="" />
+					<span>Hot</span></a
+				>
+				<a href="#" class="main-nav__item"
+					><img src="./img/nav-icons/new.png" alt="" />
+					<span>New</span></a
+				>
 			</nav>
 		</header>
+
+		<div class="page-container">
+			<aside class="sidebar">
+				<nav class="side-nav">
+					<a href="#" class="side-nav__link side-nav__link--active"
+						><span class="mdi mdi-home-variant"></span>Главная</a
+					>
+					<a href="#" class="side-nav__link"
+						><span class="mdi mdi-music"></span>Топ Чарты</a
+					>
+					<a href="#" class="side-nav__link"
+						><span class="mdi mdi-star"></span>Жанры</a
+					>
+					<a href="#" class="side-nav__link"
+						><span class="mdi mdi-account-music"></span
+						>Исполнители</a
+					>
+					<a href="#" class="side-nav__link"
+						><span class="mdi mdi-music-box-multiple"></span
+						>Альбомы</a
+					>
+					<a href="#" class="side-nav__link"
+						><span class="mdi mdi-radio-tower"></span
+						>Радио-онлайн</a
+					>
+					<a href="#" class="side-nav__link"
+						><span class="mdi mdi-playlist-music"></span>Сборники</a
+					>
+				</nav>
+
+				<section class="collections">
+					<h3>Музыкальные сборники</h3>
+					<button class="collections__more btn-more">Еще</button>
+					<div class="collections__content">
+						<a href="#" class="collections__item">
+							<img
+								src="./img/sidebar-collections/matryoshka.jpg"
+								alt="Матрешка"
+							/>
+						</a>
+						<a href="#" class="collections__item">
+							<img
+								src="./img/sidebar-collections/hit.jpg"
+								alt="Русский хит"
+							/>
+						</a>
+						<a href="#" class="collections__item">
+							<img
+								src="./img/sidebar-collections/matryoshka.jpg"
+								alt="Матрешка"
+							/>
+						</a>
+						<a href="#" class="collections__item">
+							<img
+								src="./img/sidebar-collections/hit.jpg"
+								alt="Русский хит"
+							/>
+						</a>
+					</div>
+				</section>
+			</aside>
+
+			<main class="top-songs">
+				<div class="top-songs__wrapper">
+					<h1>Топ лучших песен</h1>
+					<div class="top-songs__new-tracks">
+						<h2>Новые треки</h2>
+						<button class="top-songs__more btn-more">Еще</button>
+					</div>
+					<div class="tracklist">
+						<!-- <div class="tracklist__track">
+							<div class="tracklist__left">
+								<button
+									class="tracklist__play mdi mdi-play"
+								></button>
+								<div class="tracklist__info">
+									<span class="tracklist__author"
+										>Дима Лелюк и Локви</span
+									>
+									<span class="tracklist__track-name"
+										>Нас нет
+									</span>
+								</div>
+							</div>
+							<div class="tracklist__right">
+								<span class="tracklist__duration">02:49</span>
+								<button
+									class="tracklist__download mdi mdi-download"
+								></button>
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<div class="player">
+			<div class="player__wrapper">
+				<div class="player__nav">
+					<button
+						class="player-btn player__prev mdi mdi-skip-previous"
+					></button>
+					<button
+						class="player-btn player__play mdi mdi-play"
+					></button>
+					<button
+						class="player-btn player__next mdi mdi-skip-next"
+					></button>
+				</div>
+				<div class="player__info-wrapper">
+					<div class="player__info">
+						<div class="player__left">
+							<img
+								src="./img/sidebar-collections/hit.jpg"
+								alt=""
+								class="player__img"
+							/>
+							<div class="player__text">
+								<span class="player__artist">Градусы</span>
+								<span class="player__title">О тебе думаю</span>
+							</div>
+						</div>
+						<span class="player__duration"> 0:11 / 03:35 </span>
+					</div>
+					<div class="player__line">
+						<div class="player__line--duration"></div>
+					</div>
+				</div>
+				<div class="player__controls">
+					<button class="player__repeat mdi mdi-repeat"></button>
+					<button
+						class="player__shuffle mdi mdi-shuffle-variant"
+					></button>
+					<button
+						class="player__volume-btn mdi mdi-volume-high"
+					></button>
+					<div class="player__volume">
+						<div class="player__volume--line"></div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>

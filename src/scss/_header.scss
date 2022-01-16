@@ -6,11 +6,22 @@
 .main-nav {
 	margin-top: 14px;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
+	flex-wrap: wrap;
 	&__logo {
 		display: flex;
 		margin-right: 58px;
+	}
+	&__search-wrapper {
+		border-bottom: 2px solid #949494;
+		width: 61%;
+		padding-left: 5px;
+		display: flex;
+
+		& span {
+			font-size: 22px;
+		}
 	}
 	&__search {
 		background: transparent;
@@ -27,17 +38,19 @@
 		text-decoration: none;
 		color: #000;
 		font-weight: 700;
-		border-bottom: 1px solid #cacaca;
-	}
-}
-
-.search {
-	border-bottom: 2px solid #949494;
-	width: 61%;
-	padding-left: 5px;
-	display: flex;
-
-	& span {
-		font-size: 22px;
+		display: flex;
+		align-items: center;
+		transition: 0.2s ease-in transform;
+		& span {
+			margin-left: 6px;
+			border-bottom: 1px solid #cacaca;
+			transition: 0.2s ease-in border;
+		}
+		&:hover {
+			transform: scale(1.1);
+			& span {
+				border-bottom: 1px solid #000;
+			}
+		}
 	}
 }

@@ -1,4 +1,225 @@
 /*!************************************************************************************************************!*\
   !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!./scss/style.scss ***!
   \************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);
+/*!****************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!./scss/style.scss (1) ***!
+  \****************************************************************************************************************/
+@charset "UTF-8";
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: #f0f1f2;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif; }
+
+.header {
+  max-width: 1172px;
+  margin: 0 auto; }
+
+.main-nav {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; }
+  .main-nav__logo {
+    display: flex;
+    margin-right: 58px; }
+  .main-nav__search-wrapper {
+    border-bottom: 2px solid #949494;
+    width: 61%;
+    padding-left: 5px;
+    display: flex; }
+    .main-nav__search-wrapper span {
+      font-size: 22px; }
+  .main-nav__search {
+    background: transparent;
+    border: none;
+    font-size: 18px; }
+    .main-nav__search:hover, .main-nav__search:active, .main-nav__search:focus {
+      outline: none; }
+  .main-nav__item {
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    transition: 0.2s ease-in transform; }
+    .main-nav__item span {
+      margin-left: 6px;
+      border-bottom: 1px solid #cacaca;
+      transition: 0.2s ease-in border; }
+    .main-nav__item:hover {
+      transform: scale(1.1); }
+      .main-nav__item:hover span {
+        border-bottom: 1px solid #000; }
+
+.page-container {
+  max-width: 1172px;
+  margin: 0 auto;
+  padding-top: 50px;
+  display: flex;
+  height: calc(100vh - 185px); }
+
+.btn-more {
+  border: none;
+  border-radius: 15px;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  padding: 4px 12px;
+  margin-left: 10px;
+  cursor: pointer;
+  background-color: #8f5aff;
+  transition: 0.2s ease background-color; }
+  .btn-more:active {
+    background-color: #7637ff; }
+
+.sidebar {
+  width: 25%; }
+
+.side-nav__link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 7px 0;
+  border-bottom: 1px solid #cacaca;
+  transition: 0.2s ease color; }
+  .side-nav__link:last-child {
+    border-bottom: none; }
+  .side-nav__link span {
+    font-size: 22px;
+    margin-right: 6px; }
+  .side-nav__link:hover {
+    color: #8f5aff; }
+  .side-nav__link--active {
+    color: #8f5aff; }
+
+.collections {
+  position: sticky;
+  top: 30px;
+  margin-top: 40px; }
+  .collections h3 {
+    margin: 0;
+    display: inline-block; }
+  .collections__content {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px; }
+  .collections__item {
+    display: flex;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden; }
+    .collections__item img {
+      width: 140px;
+      height: 140px; }
+    .collections__item::after {
+      content: 'Перейти';
+      opacity: 0;
+      color: #fff;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.514);
+      transition: 0.2s ease-in opacity; }
+    .collections__item:hover::after {
+      opacity: 1; }
+
+.top-songs {
+  display: flex;
+  justify-content: center;
+  width: 75%; }
+  .top-songs__wrapper {
+    width: 80%; }
+  .top-songs h1 {
+    margin: 0; }
+  .top-songs__new-tracks {
+    display: flex;
+    align-items: center; }
+
+.tracklist__track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  border-bottom: 1px solid #cacaca;
+  padding: 0px 10px; }
+  .tracklist__track:hover {
+    background-color: #fff; }
+  .tracklist__track--active {
+    background-color: #fff; }
+
+.tracklist__left, .tracklist__right {
+  display: flex;
+  gap: 15px; }
+
+.tracklist__play {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 2px;
+  padding: 0;
+  color: #fff;
+  font-size: 35px;
+  background-image: url(../img/matryoshka.jpg);
+  background-size: cover;
+  cursor: pointer; }
+
+.tracklist__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+
+.tracklist__author {
+  font-weight: 700; }
+
+.tracklist__duration {
+  display: flex;
+  align-items: center; }
+
+.tracklist__download {
+  display: flex;
+  align-items: center;
+  border: none;
+  font-size: 25px;
+  background: transparent;
+  color: #8f5aff;
+  transition: 0.2s ease transform;
+  cursor: pointer; }
+  .tracklist__download:hover {
+    transform: scale(1.2); }
+
+.player {
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
+  .player__wrapper {
+    max-width: 1172px;
+    margin: 0 auto;
+    height: 71px;
+    display: flex;
+    align-items: center; }
+  .player__nav {
+    display: flex;
+    align-items: center; }
+  .player-btn {
+    color: #8f5aff;
+    font-size: 22px;
+    border: none;
+    background: transparent; }
+  .player__play {
+    font-size: 32px; }
 

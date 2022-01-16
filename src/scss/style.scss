@@ -1,9 +1,43 @@
+@import '_fonts.scss';
+
 * {
 	box-sizing: border-box;
 }
 body {
 	margin: 0;
+	padding-bottom: 90px;
 	background-color: #f0f1f2;
 	font-family: 'Roboto', Arial, Helvetica, sans-serif;
+	min-height: 90vh;
 }
+
 @import '_header.scss';
+
+.page-container {
+	max-width: 1172px;
+	margin: 0 auto;
+	padding-top: 50px;
+	display: flex;
+}
+
+.btn-more {
+	border: none;
+	border-radius: 15px;
+	font-family: 'Roboto', Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	color: #fff;
+	padding: 4px 12px;
+	margin-left: 10px;
+	cursor: pointer;
+	background-color: #8f5aff;
+	transition: 0.2s ease background-color;
+	&:active {
+		background-color: #7637ff;
+	}
+}
+
+@import '_sidebar.scss';
+@import '_top-songs.scss';
+@import '_tracklist.scss';
+@import '_player.scss';

@@ -1,0 +1,75 @@
+.sidebar {
+	width: 25%;
+}
+.side-nav {
+	&__link {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		color: #000;
+		font-size: 18px;
+		font-weight: 700;
+		padding: 7px 0;
+		border-bottom: 1px solid #cacaca;
+		transition: 0.2s ease color;
+		&:last-child {
+			border-bottom: none;
+		}
+		& span {
+			font-size: 22px;
+			margin-right: 6px;
+		}
+		&:hover {
+			color: #8f5aff;
+		}
+		&--active {
+			color: #8f5aff;
+		}
+	}
+}
+
+.collections {
+	position: sticky;
+	top: 30px;
+	margin-top: 40px;
+	& h3 {
+		margin: 0;
+		display: inline-block;
+	}
+	&__content {
+		margin-top: 15px;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+	&__item {
+		display: flex;
+		position: relative;
+		border-radius: 5px;
+		overflow: hidden;
+		& img {
+			width: 140px;
+			height: 140px;
+		}
+
+		&::after {
+			content: 'Перейти';
+			opacity: 0;
+			color: #fff;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: rgba(0, 0, 0, 0.514);
+
+			transition: 0.2s ease-in opacity;
+		}
+
+		&:hover::after {
+			opacity: 1;
+		}
+	}
+}
