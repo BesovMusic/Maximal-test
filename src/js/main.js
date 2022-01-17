@@ -48,6 +48,7 @@ const songs = [
 ];
 
 const tracklist = document.querySelector('.tracklist');
+let fillteredSongs = [];
 
 for (let index = 0; index < songs.length; index++) {
 	const myTrack = new Track(songs[index]);
@@ -74,6 +75,7 @@ const volumeWrapper = document.querySelector('.player__volume');
 const volume = document.querySelector('.player__volume--line');
 const time = document.querySelector('.player__duration');
 const muteBtn = document.querySelector('.player__volume-btn');
+const search = document.querySelector('#search');
 
 let songIndex = 1;
 

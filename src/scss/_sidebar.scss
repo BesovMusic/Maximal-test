@@ -48,9 +48,16 @@
 		position: relative;
 		border-radius: 5px;
 		overflow: hidden;
+		text-decoration: none;
 		& img {
 			width: 140px;
 			height: 140px;
+		}
+		& span {
+			display: none;
+			margin: 0 auto;
+			font-weight: 700;
+			color: #fff;
 		}
 
 		&::after {

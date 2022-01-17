@@ -2,6 +2,10 @@
 
 * {
 	box-sizing: border-box;
+	-webkit-touch-callout: none;
+	-webkit-text-size-adjust: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	// -webkit-user-select: none;
 }
 body {
 	margin: 0;
@@ -14,9 +18,9 @@ body {
 @import '_header.scss';
 
 .page-container {
-	max-width: 1172px;
+	max-width: 1192px;
 	margin: 0 auto;
-	padding-top: 50px;
+	padding: 50px 10px 0px 10px;
 	display: flex;
 }
 
@@ -41,3 +45,5 @@ body {
 @import '_top-songs.scss';
 @import '_tracklist.scss';
 @import '_player.scss';
+
+@import '_media.scss';
