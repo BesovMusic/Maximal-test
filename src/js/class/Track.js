@@ -1,9 +1,9 @@
 export default class Track {
 	constructor(data) {
-		this.author = data.author;
+		this.artist = data.artist;
 		this.title = data.title;
 		this.duration = data.duration;
-		this.img = data.img;
+		this.cover = data.cover;
 		this.isPlaying = false;
 	}
 
@@ -14,7 +14,7 @@ export default class Track {
                 <button class="tracklist__play mdi mdi-play"></button>
                 <div class="tracklist__info">
                     <span class="tracklist__author"
-                        >${this.author}</span>
+                        >${this.artist}</span>
                     <span class="tracklist__track-name"
                         >${this.title}
                     </span>
@@ -26,19 +26,19 @@ export default class Track {
             </div>`;
 
 		const bgImg = myTrack.querySelector('.tracklist__play');
-		bgImg.style.backgroundImage = `url(${this.img})`;
+		bgImg.style.backgroundImage = `url(${this.cover})`;
 
 		return myTrack;
 	}
 
 	play() {
-		console.log(this.isPlaying);
+		console.log('play');
 		this.createTrack.style.backgroundColor = '#fff';
 		this.isPlaying = true;
 	}
 
 	stop() {
-		console.log(this.isPlaying);
+		console.log('pause');
 		this.createTrack.style.backgroundColor = 'transparent';
 		this.isPlaying = false;
 	}

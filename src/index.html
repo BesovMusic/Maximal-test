@@ -134,16 +134,20 @@
 		</div>
 
 		<div class="player">
+			<audio src="./music/Daft_Punk.mp3" id="audio"></audio>
 			<div class="player__wrapper">
 				<div class="player__nav">
 					<button
 						class="player-btn player__prev mdi mdi-skip-previous"
+						id="prev"
 					></button>
 					<button
 						class="player-btn player__play mdi mdi-play"
+						id="play"
 					></button>
 					<button
 						class="player-btn player__next mdi mdi-skip-next"
+						id="next"
 					></button>
 				</div>
 				<div class="player__info-wrapper">
@@ -159,10 +163,10 @@
 								<span class="player__title">О тебе думаю</span>
 							</div>
 						</div>
-						<span class="player__duration"> 0:11 / 03:35 </span>
+						<span class="player__duration"> 00:00 / 00:00 </span>
 					</div>
 					<div class="player__line">
-						<div class="player__line--duration"></div>
+						<div class="player__line--progress"></div>
 					</div>
 				</div>
 				<div class="player__controls">
