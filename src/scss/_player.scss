@@ -31,11 +31,12 @@
 		align-items: center;
 		justify-content: space-between;
 		&-wrapper {
-			width: 70%;
+			flex: 0 0 70%;
 		}
 	}
 	&__left {
 		display: flex;
+		width: 100%;
 	}
 	&__text {
 		display: flex;
@@ -71,6 +72,8 @@
 		}
 	}
 	&__duration {
+		// display: block;
+		white-space: nowrap;
 		color: #a7a7a7;
 		font-size: 12px;
 	}

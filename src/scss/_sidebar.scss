@@ -1,5 +1,8 @@
 .sidebar {
 	width: 25%;
+	&__toggler {
+		display: none;
+	}
 }
 .side-nav {
 	&__link {
@@ -26,9 +29,15 @@
 			color: #8f5aff;
 		}
 	}
+	&__close {
+		display: none;
+		padding-top: 10px;
+		justify-content: flex-end;
+	}
 }
 
 .collections {
+	position: -webkit-sticky;
 	position: sticky;
 	top: 30px;
 	margin-top: 40px;
@@ -58,6 +67,10 @@
 			margin: 0 auto;
 			font-weight: 700;
 			color: #fff;
+			padding: 5px;
+			text-align: center;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 
 		&::after {

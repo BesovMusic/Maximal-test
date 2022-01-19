@@ -85,6 +85,17 @@ module.exports = {
 					},
 				},
 			},
+			// {
+			// 	test: /\.mp3$/i,
+			// 	type: 'asset/resource',
+			// 	generator: {
+			// 		filename: () => {
+			// 			return isDev
+			// 				? 'music/[name][ext]'
+			// 				: 'music/[name].[contenthash][ext]';
+			// 		},
+			// 	},
+			// },
 		],
 	},
 };

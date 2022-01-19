@@ -1,6 +1,6 @@
 import '../scss/style.scss';
 import '../index.html';
-import Track from './class/Track';
+import Track from './classes/Track';
 
 const songs = [
 	{
@@ -48,12 +48,10 @@ const songs = [
 ];
 
 const tracklist = document.querySelector('.tracklist');
-let fillteredSongs = [];
 
 for (let index = 0; index < songs.length; index++) {
 	const myTrack = new Track(songs[index]);
 	const track = myTrack.createTrack;
-
 	tracklist.append(track);
 }
 
@@ -75,7 +73,9 @@ const volumeWrapper = document.querySelector('.player__volume');
 const volume = document.querySelector('.player__volume--line');
 const time = document.querySelector('.player__duration');
 const muteBtn = document.querySelector('.player__volume-btn');
-const search = document.querySelector('#search');
+const burger = document.querySelector('#burger');
+const closeSide = document.querySelector('#closeSide');
+const sideNav = document.querySelector('.side-nav');
 
 let songIndex = 1;
 
@@ -221,4 +221,11 @@ track.forEach((item, i) => {
 	item.addEventListener('click', () => {
 		selectSong(i);
 	});
+});
+
+burger.addEventListener('click', () => {
+	sideNav.classList.add('active');
+});
+closeSide.addEventListener('click', () => {
+	sideNav.classList.remove('active');
 });

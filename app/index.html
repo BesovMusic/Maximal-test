@@ -1,1 +1,135 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css"><title>Maximal Test</title><script defer="defer" src="js/main.167491a79015bc5f5a22.js"></script><link href="css/main.c1c671c04d976054b2c1.css" rel="stylesheet"></head><body><header class="header"><nav class="main-nav"><a href="#" class="main-nav__logo"><img src="img/logo.4e392c9a3786645a8c5f.jpg" alt="muztv"></a><div class="main-nav__search-wrapper"><label for="search"><span class="mdi mdi-magnify"></span></label> <input type="text" placeholder="Поиск музыки" class="main-nav__search" id="search"></div><a href="#" class="main-nav__item"><img src="img/hot.f955df90490959e7fcae.png" alt=""> <span>Hot</span></a> <a href="#" class="main-nav__item"><img src="img/new.b9b956ce90e2efe8fa50.png" alt=""> <span>New</span></a></nav></header><div class="page-container"><aside class="sidebar"><nav class="side-nav"><a href="#" class="side-nav__link side-nav__link--active"><span class="mdi mdi-home-variant"></span>Главная</a> <a href="#" class="side-nav__link"><span class="mdi mdi-music"></span>Топ Чарты</a> <a href="#" class="side-nav__link"><span class="mdi mdi-star"></span>Жанры</a> <a href="#" class="side-nav__link"><span class="mdi mdi-account-music"></span>Исполнители</a> <a href="#" class="side-nav__link"><span class="mdi mdi-music-box-multiple"></span>Альбомы</a> <a href="#" class="side-nav__link"><span class="mdi mdi-radio-tower"></span>Радио-онлайн</a> <a href="#" class="side-nav__link"><span class="mdi mdi-playlist-music"></span>Сборники</a></nav><section class="collections"><h3>Музыкальные сборники</h3><button class="collections__more btn-more">Еще</button><div class="collections__content"><a href="#" class="collections__item"><img src="img/matryoshka.27ec35f4e26f6536f718.jpg" alt="Матрешка"> <span class="collections__item-text">Матрешка</span> </a><a href="#" class="collections__item"><img src="img/hit.a5edbb7896c5620206b4.jpg" alt="Русский хит"> <span class="collections__item-text">Русский хит</span> </a><a href="#" class="collections__item"><img src="img/matryoshka.27ec35f4e26f6536f718.jpg" alt="Матрешка"> <span class="collections__item-text">Матрешка</span> </a><a href="#" class="collections__item"><img src="img/hit.a5edbb7896c5620206b4.jpg" alt="Русский хит"> <span class="collections__item-text">Русский хит</span></a></div></section></aside><main class="top-songs"><div class="top-songs__wrapper"><h1>Топ лучших песен</h1><div class="top-songs__new-tracks"><h2>Новые треки</h2><button class="top-songs__more btn-more">Еще</button></div><div class="tracklist"></div></div></main></div><div class="player"><audio src="ade396ac29e54d4f81d7.mp3" id="audio"></audio><div class="player__wrapper"><div class="player__nav"><button class="player-btn player__prev mdi mdi-skip-previous" id="prev"></button> <button class="player-btn player__play mdi mdi-play" id="play"></button> <button class="player-btn player__next mdi mdi-skip-next" id="next"></button></div><div class="player__info-wrapper"><div class="player__info"><div class="player__left"><img src="img/hit.a5edbb7896c5620206b4.jpg" alt="" class="player__img"><div class="player__text"><span class="player__artist">Градусы</span> <span class="player__title">О тебе думаю</span></div></div><span class="player__duration">00:00 / 00:00</span></div><div class="player__line"><div class="player__line--progress"></div></div></div><div class="player__controls"><button class="player__repeat mdi mdi-repeat"></button> <button class="player__shuffle mdi mdi-shuffle-variant"></button> <button class="player__volume-btn mdi mdi-volume-high"></button><div class="player__volume"><div class="player__volume--line"></div></div></div></div></div></body></html>
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
+		<title>Maximal Test</title>
+	<script defer="defer" src="js/main.js"></script><link href="css/main.css" rel="stylesheet"></head>
+	<body>
+		<header class="header">
+			<nav class="main-nav">
+				<a href="#" class="main-nav__logo"><img src="img/logo.jpg" alt="muztv"></a>
+				<div class="main-nav__toggler">
+					<span id="burger" class="mdi mdi-menu"></span>
+				</div>
+				<div class="main-nav__search-wrapper">
+					<label for="search"><span class="mdi mdi-magnify"></span></label>
+					<input type="text" placeholder="Поиск музыки" class="main-nav__search" id="search">
+				</div>
+				<a href="#" class="main-nav__item"><img src="img/hot.png" alt="">
+					<span>Hot</span></a>
+				<a href="#" class="main-nav__item"><img src="img/new.png" alt="">
+					<span>New</span></a>
+			</nav>
+		</header>
+
+		<div class="page-container">
+			<aside class="sidebar">
+				<nav class="side-nav">
+					<div class="side-nav__link side-nav__close">
+						<span id="closeSide" class="mdi mdi-close"></span>
+					</div>
+					<a href="#" class="side-nav__link side-nav__link--active"><span class="mdi mdi-home-variant"></span>Главная</a>
+					<a href="#" class="side-nav__link"><span class="mdi mdi-music"></span>Топ Чарты</a>
+					<a href="#" class="side-nav__link"><span class="mdi mdi-star"></span>Жанры</a>
+					<a href="#" class="side-nav__link"><span class="mdi mdi-account-music"></span>Исполнители</a>
+					<a href="#" class="side-nav__link"><span class="mdi mdi-music-box-multiple"></span>Альбомы</a>
+					<a href="#" class="side-nav__link"><span class="mdi mdi-radio-tower"></span>Радио-онлайн</a>
+					<a href="#" class="side-nav__link"><span class="mdi mdi-playlist-music"></span>Сборники</a>
+				</nav>
+
+				<section class="collections">
+					<h3>Музыкальные сборники</h3>
+					<button class="collections__more btn-more">Еще</button>
+					<div class="collections__content">
+						<a href="#" class="collections__item">
+							<img src="img/matryoshka.jpg" alt="Матрешка">
+							<span class="collections__item-text">Матрешка</span>
+						</a>
+						<a href="#" class="collections__item">
+							<img src="img/hit.jpg" alt="Русский хит">
+							<span class="collections__item-text">Русский хит</span>
+						</a>
+						<a href="#" class="collections__item">
+							<img src="img/matryoshka.jpg" alt="Матрешка">
+							<span class="collections__item-text">Матрешка</span>
+						</a>
+						<a href="#" class="collections__item">
+							<img src="img/hit.jpg" alt="Русский хит">
+							<span class="collections__item-text">Русский хит</span>
+						</a>
+					</div>
+				</section>
+			</aside>
+
+			<main class="top-songs">
+				<div class="top-songs__wrapper">
+					<h1>Топ лучших песен</h1>
+					<div class="top-songs__new-tracks">
+						<h2>Новые треки</h2>
+						<button class="top-songs__more btn-more">Еще</button>
+					</div>
+					<div class="tracklist">
+						<!-- <div class="tracklist__track">
+							<div class="tracklist__left">
+								<button
+									class="tracklist__play mdi mdi-play"
+								></button>
+								<div class="tracklist__info">
+									<span class="tracklist__author"
+										>Дима Лелюк и Локви</span
+									>
+									<span class="tracklist__track-name"
+										>Нас нет
+									</span>
+								</div>
+							</div>
+							<div class="tracklist__right">
+								<span class="tracklist__duration">02:49</span>
+								<button
+									class="tracklist__download mdi mdi-download"
+								></button>
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<div class="player">
+			<audio src="ade396ac29e54d4f81d7.mp3" id="audio"></audio>
+			<div class="player__wrapper">
+				<div class="player__nav">
+					<button class="player-btn player__prev mdi mdi-skip-previous" id="prev"></button>
+					<button class="player-btn player__play mdi mdi-play" id="play"></button>
+					<button class="player-btn player__next mdi mdi-skip-next" id="next"></button>
+				</div>
+				<div class="player__info-wrapper">
+					<div class="player__info">
+						<div class="player__left">
+							<img src="img/hit.jpg" alt="" class="player__img">
+							<div class="player__text">
+								<span class="player__artist">Градусы</span>
+								<span class="player__title">О тебе думаю</span>
+							</div>
+						</div>
+						<span class="player__duration"> 00:00 / 00:00 </span>
+					</div>
+					<div class="player__line">
+						<div class="player__line--progress"></div>
+					</div>
+				</div>
+				<div class="player__controls">
+					<button class="player__repeat mdi mdi-repeat"></button>
+					<button class="player__shuffle mdi mdi-shuffle-variant"></button>
+					<button class="player__volume-btn mdi mdi-volume-high"></button>
+					<div class="player__volume">
+						<div class="player__volume--line"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

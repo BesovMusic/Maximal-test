@@ -1,0 +1,44 @@
+[
+	{
+		"title": "Harder, Better, Faster, Stronger",
+		"artist": "Daft Punk",
+		"src": "music/Daft_Punk.mp3",
+		"cover": "music/covers/daft_punk.jpg",
+		"duration": "03:46"
+	},
+	{
+		"title": "Blinding lights",
+		"artist": "The Weeknd",
+		"src": "music/The_Weeknd.mp3",
+		"cover": "music/covers/the_weeknd.jpg",
+		"duration": "03:21"
+	},
+	{
+		"title": "Снегом",
+		"artist": "КОСМОНАВТОВ НЕТ",
+		"src": "music/КОСМОНАВТОВ_НЕТ.mp3",
+		"cover": "music/covers/snegom.jpg",
+		"duration": "02:38"
+	},
+	{
+		"title": "Harder, Better, Faster, Stronger",
+		"artist": "Daft Punk",
+		"src": "music/Daft_Punk.mp3",
+		"cover": "music/covers/daft_punk.jpg",
+		"duration": "03:46"
+	},
+	{
+		"title": "Blinding lights",
+		"artist": "The Weeknd",
+		"src": "music/The_Weeknd.mp3",
+		"cover": "music/covers/the_weeknd.jpg",
+		"duration": "03:21"
+	},
+	{
+		"title": "Снегом",
+		"artist": "КОСМОНАВТОВ НЕТ",
+		"src": "music/КОСМОНАВТОВ_НЕТ.mp3",
+		"cover": "music/covers/snegom.jpg",
+		"duration": "02:38"
+	}
+]
