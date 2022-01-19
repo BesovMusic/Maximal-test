@@ -1,9 +1,10 @@
 import '../scss/style.scss';
 import '../index.html';
-import Track from './classes/Track';
+import Player from './entity/Player';
 
 const songs = [
 	{
+		id: 0,
 		title: 'Harder, Better, Faster, Stronger',
 		artist: 'Daft Punk',
 		src: 'music/Daft_Punk.mp3',
@@ -11,6 +12,7 @@ const songs = [
 		duration: '03:46',
 	},
 	{
+		id: 1,
 		title: 'Blinding lights',
 		artist: 'The Weeknd',
 		src: 'music/The_Weeknd.mp3',
@@ -18,6 +20,7 @@ const songs = [
 		duration: '03:21',
 	},
 	{
+		id: 2,
 		title: 'Снегом',
 		artist: 'КОСМОНАВТОВ НЕТ',
 		src: 'music/КОСМОНАВТОВ_НЕТ.mp3',
@@ -25,6 +28,7 @@ const songs = [
 		duration: '02:38',
 	},
 	{
+		id: 3,
 		title: 'Harder, Better, Faster, Stronger',
 		artist: 'Daft Punk',
 		src: 'music/Daft_Punk.mp3',
@@ -32,6 +36,7 @@ const songs = [
 		duration: '03:46',
 	},
 	{
+		id: 4,
 		title: 'Blinding lights',
 		artist: 'The Weeknd',
 		src: 'music/The_Weeknd.mp3',
@@ -39,6 +44,7 @@ const songs = [
 		duration: '03:21',
 	},
 	{
+		id: 5,
 		title: 'Снегом',
 		artist: 'КОСМОНАВТОВ НЕТ',
 		src: 'music/КОСМОНАВТОВ_НЕТ.mp3',
@@ -47,13 +53,35 @@ const songs = [
 	},
 ];
 
+const player = new Player(songs);
+
 const tracklist = document.querySelector('.tracklist');
 
-for (let index = 0; index < songs.length; index++) {
-	const myTrack = new Track(songs[index]);
-	const track = myTrack.createTrack;
-	tracklist.append(track);
+function addTrack(track) {
+	const myTrack = document.createElement('div');
+	myTrack.classList.add('tracklist__track');
+	myTrack.innerHTML = `<div class="tracklist__left">
+			<button class="tracklist__play mdi mdi-play"></button>
+			<div class="tracklist__info">
+				<span class="tracklist__author"
+					>${track.artist}</span>
+				<span class="tracklist__track-name"
+					>${track.title}
+				</span>
+			</div>
+		</div>
+		<div class="tracklist__right">
+			<span class="tracklist__duration">${track.trackDuration}</span>
+			<button class="tracklist__download mdi mdi-download"></button>
+		</div>`;
+
+	const bgImg = myTrack.querySelector('.tracklist__play');
+	bgImg.style.backgroundImage = `url(${track.cover})`;
+
+	tracklist.append(myTrack);
 }
+
+player.tracks.forEach(addTrack);
 
 const track = document.querySelectorAll('.tracklist__track');
 
@@ -92,7 +120,7 @@ function loadSong(song) {
 function playSong() {
 	playBtn.classList.remove('mdi-play');
 	playBtn.classList.add('mdi-pause');
-	audio.play();
+	player.currentTrack.play();
 	let tPlayBtn = track[songIndex].querySelector('.tracklist__play');
 	tPlayBtn.classList.add('mdi-pause');
 	tPlayBtn.classList.remove('mdi-play');
@@ -101,7 +129,7 @@ function playSong() {
 function pauseSong() {
 	playBtn.classList.remove('mdi-pause');
 	playBtn.classList.add('mdi-play');
-	audio.pause();
+	player.currentTrack.pause();
 	let tPlayBtn = track[songIndex].querySelector('.tracklist__play');
 	tPlayBtn.classList.remove('mdi-pause');
 	tPlayBtn.classList.add('mdi-play');
@@ -113,6 +141,7 @@ function prevSong() {
 		songIndex = songs.length - 1;
 	}
 	loadSong(songs[songIndex]);
+	player.prev(songIndex);
 	playSong();
 }
 
@@ -122,6 +151,7 @@ function nextSong() {
 		songIndex = 0;
 	}
 	loadSong(songs[songIndex]);
+	player.next(songIndex);
 	playSong();
 }
 
@@ -135,9 +165,9 @@ function updateProgress(e) {
 function setProgress(e) {
 	const width = this.clientWidth;
 	const clickX = e.offsetX;
-	const duration = audio.duration;
+	const duration = player.currentTrack.duration;
 
-	audio.currentTime = (clickX / width) * duration;
+	player.currentTrack.currentTime = (clickX / width) * duration;
 }
 
 function setVolume(e) {
@@ -178,7 +208,7 @@ function toggleMute() {
 // events
 
 playBtn.addEventListener('click', () => {
-	if (!audio.paused) {
+	if (!player.currentTrack.paused) {
 		pauseSong();
 	} else {
 		playSong();
@@ -188,12 +218,12 @@ playBtn.addEventListener('click', () => {
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
 
-audio.addEventListener('timeupdate', updateProgress);
-audio.addEventListener('ended', nextSong);
-audio.addEventListener('canplay', () => {
-	time.innerText = `${formatTime(audio.currentTime)} / ${formatTime(
-		audio.duration
-	)}`;
+player.currentTrack.addEventListener('timeupdate', updateProgress);
+player.currentTrack.addEventListener('ended', nextSong);
+player.currentTrack.addEventListener('canplay', () => {
+	time.innerText = `${formatTime(
+		player.currentTrack.currentTime
+	)} / ${formatTime(player.currentTrack.duration)}`;
 });
 
 progressContainer.addEventListener('click', setProgress);
@@ -229,9 +259,9 @@ function changeTrackState() {
 
 track.forEach((item, i) => {
 	item.addEventListener('click', () => {
-		if (songIndex === i && audio.paused) {
+		if (songIndex === i && player.currentTrack.paused) {
 			playSong();
-		} else if (songIndex === i && !audio.paused) {
+		} else if (songIndex === i && !player.currentTrack.paused) {
 			pauseSong();
 		} else {
 			songIndex = i;
