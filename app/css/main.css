@@ -218,7 +218,8 @@ body {
 
 .tracklist__duration {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  font-size: 12px; }
 
 .tracklist__download {
   display: flex;
