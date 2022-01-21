@@ -11,17 +11,25 @@ export default class Track extends Audio {
 		this.cover = data.cover === undefined ? null : data.cover;
 	}
 
-	get trackDuration() {
-		let min = Math.floor(this.duration / 60);
+	formatTime(time) {
+		let min = Math.floor(time / 60);
 		if (min < 10) {
 			min = '0' + min;
 		}
 
-		let sec = Math.floor(this.duration % 60);
+		let sec = Math.floor(time % 60);
 		if (sec < 10) {
 			sec = '0' + sec;
 		}
 		return `${min}:${sec}`;
+	}
+
+	get trackDuration() {
+		return this.formatTime(this.duration);
+	}
+
+	get trackCurrentTime() {
+		return this.formatTime(this.currentTime);
 	}
 
 	stop() {

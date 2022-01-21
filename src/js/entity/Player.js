@@ -16,6 +16,7 @@ export default class Player {
 		this.currentTrack = track;
 	}
 
+	/** @param number */
 	choiсeTrack(id) {
 		const track = this.tracks.find((track) => {
 			return track.id == id;
@@ -27,15 +28,33 @@ export default class Player {
 		this.setCurrentTrack(track);
 	}
 
-	next(i) {
+	get currentTrackIndex() {
+		return this.tracks.findIndex((track) => {
+			return track.id === this.currentTrack.id;
+		});
+	}
+
+	next() {
 		this.currentTrack.stop();
-		this.currentTrack = this.tracks[i];
+		let currentIndex = this.currentTrackIndex;
+		if (currentIndex === this.tracks.length - 1) {
+			currentIndex = 0;
+		} else {
+			currentIndex++;
+		}
+		this.currentTrack = this.tracks[currentIndex];
 		this.currentTrack.play();
 	}
 
-	prev(i) {
+	prev() {
 		this.currentTrack.stop();
-		this.currentTrack = this.tracks[i];
+		let currentIndex = this.currentTrackIndex;
+		if (currentIndex === 0) {
+			currentIndex = this.tracks.length - 1;
+		} else {
+			currentIndex--;
+		}
+		this.currentTrack = this.tracks[currentIndex];
 		this.currentTrack.play();
 	}
 }

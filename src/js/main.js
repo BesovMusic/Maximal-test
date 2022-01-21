@@ -8,11 +8,33 @@ import Player from './entity/Player';
 
 	const tracklist = document.querySelector('.tracklist');
 
-	let songIndex = 0;
-
 	const player = new Player(songs);
 
-	player.tracks.forEach(addTrack);
+	player.tracks.forEach((track) => {
+		const creatingTrack = document.createElement('div');
+		creatingTrack.classList.add('tracklist__track');
+		creatingTrack.setAttribute('data-id', track.id);
+		creatingTrack.innerHTML = `<div class="tracklist__left">
+				<button class="tracklist__play mdi mdi-play"></button>
+				<div class="tracklist__info">
+					<span class="tracklist__author"
+						>${track.artist}</span>
+					<span class="tracklist__track-name"
+						>${track.title}
+					</span>
+				</div>
+			</div>
+			<div class="tracklist__right">
+				<span class="tracklist__duration">00:00</span>
+				<button class="tracklist__download mdi mdi-download"></button>
+			</div>`;
+
+		const bgImg = creatingTrack.querySelector('.tracklist__play');
+		bgImg.style.backgroundImage = `url(${track.cover})`;
+
+		tracklist.append(creatingTrack);
+	});
+
 	player.tracks.forEach((track, i) => {
 		track.addEventListener('loadedmetadata', () => {
 			const trackDuration = document.querySelectorAll(
@@ -39,32 +61,7 @@ import Player from './entity/Player';
 	const closeSide = document.querySelector('#closeSide');
 	const sideNav = document.querySelector('.side-nav');
 
-	loadSong(songs[songIndex]);
-
-	function addTrack(track) {
-		const creatingTrack = document.createElement('div');
-		creatingTrack.classList.add('tracklist__track');
-		creatingTrack.setAttribute('data-id', track.id);
-		creatingTrack.innerHTML = `<div class="tracklist__left">
-				<button class="tracklist__play mdi mdi-play"></button>
-				<div class="tracklist__info">
-					<span class="tracklist__author"
-						>${track.artist}</span>
-					<span class="tracklist__track-name"
-						>${track.title}
-					</span>
-				</div>
-			</div>
-			<div class="tracklist__right">
-				<span class="tracklist__duration">00:00</span>
-				<button class="tracklist__download mdi mdi-download"></button>
-			</div>`;
-
-		const bgImg = creatingTrack.querySelector('.tracklist__play');
-		bgImg.style.backgroundImage = `url(${track.cover})`;
-
-		tracklist.append(creatingTrack);
-	}
+	loadSong(player.currentTrack);
 
 	function loadSong(song) {
 		artist.innerText = song.artist;
@@ -77,7 +74,8 @@ import Player from './entity/Player';
 		playBtn.classList.remove('mdi-play');
 		playBtn.classList.add('mdi-pause');
 		player.currentTrack.play();
-		let tPlayBtn = track[songIndex].querySelector('.tracklist__play');
+		let tPlayBtn =
+			track[player.currentTrackIndex].querySelector('.tracklist__play');
 		tPlayBtn.classList.add('mdi-pause');
 		tPlayBtn.classList.remove('mdi-play');
 	}
@@ -86,28 +84,21 @@ import Player from './entity/Player';
 		playBtn.classList.remove('mdi-pause');
 		playBtn.classList.add('mdi-play');
 		player.currentTrack.pause();
-		let tPlayBtn = track[songIndex].querySelector('.tracklist__play');
+		let tPlayBtn =
+			track[player.currentTrackIndex].querySelector('.tracklist__play');
 		tPlayBtn.classList.remove('mdi-pause');
 		tPlayBtn.classList.add('mdi-play');
 	}
 
 	function prevSong() {
-		songIndex--;
-		if (songIndex < 0) {
-			songIndex = songs.length - 1;
-		}
-		loadSong(songs[songIndex]);
-		player.prev(songIndex);
+		player.prev();
+		loadSong(player.currentTrack);
 		playSong();
 	}
 
 	function nextSong() {
-		songIndex++;
-		if (songIndex > songs.length - 1) {
-			songIndex = 0;
-		}
-		loadSong(songs[songIndex]);
-		player.next(songIndex);
+		player.next();
+		loadSong(player.currentTrack);
 		playSong();
 	}
 
@@ -115,7 +106,7 @@ import Player from './entity/Player';
 		const { duration, currentTime } = e.srcElement;
 		const progressPercent = (currentTime / duration) * 100;
 		progress.style.width = `${progressPercent}%`;
-		time.innerText = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+		time.innerText = `${player.currentTrack.trackCurrentTime} / ${player.currentTrack.trackDuration}`;
 	}
 
 	function setProgress(e) {
@@ -132,19 +123,6 @@ import Player from './entity/Player';
 		});
 	}
 
-	function formatTime(time) {
-		let min = Math.floor(time / 60);
-		if (min < 10) {
-			min = '0' + min;
-		}
-
-		let sec = Math.floor(time % 60);
-		if (sec < 10) {
-			sec = '0' + sec;
-		}
-		return `${min}:${sec}`;
-	}
-
 	function toggleMute() {
 		if (!player.currentTrack.muted) {
 			player.currentTrack.muted = true;
@@ -157,18 +135,32 @@ import Player from './entity/Player';
 		}
 	}
 
+	function selectCurrentTrack() {
+		track.forEach((item) => {
+			const play = item.querySelector('.tracklist__play');
+			item.classList.remove('tracklist__track--active');
+			play.classList.remove('mdi-pause');
+			play.classList.add('mdi-play');
+		});
+		track[player.currentTrackIndex].classList.add(
+			'tracklist__track--active'
+		);
+	}
+
 	// events
 
 	track.forEach((item, i) => {
 		item.addEventListener('click', () => {
-			if (songIndex === i && player.currentTrack.paused) {
+			if (player.currentTrackIndex === i && player.currentTrack.paused) {
 				playSong();
-			} else if (songIndex === i && !player.currentTrack.paused) {
+			} else if (
+				player.currentTrackIndex === i &&
+				!player.currentTrack.paused
+			) {
 				pauseSong();
 			} else {
-				songIndex = i;
-				loadSong(songs[songIndex]);
 				player.choiсeTrack(item.dataset.id);
+				loadSong(player.currentTrack);
 				playSong();
 			}
 		});
@@ -188,10 +180,8 @@ import Player from './entity/Player';
 	player.tracks.forEach((track) => {
 		track.addEventListener('timeupdate', updateProgress);
 		track.addEventListener('ended', nextSong);
-		track.addEventListener('canplay', () => {
-			time.innerText = `${formatTime(track.currentTime)} / ${formatTime(
-				track.duration
-			)}`;
+		track.addEventListener('loadedmetadata', () => {
+			time.innerText = `${player.currentTrack.trackCurrentTime} / ${player.currentTrack.trackDuration}`;
 		});
 	});
 
@@ -200,16 +190,6 @@ import Player from './entity/Player';
 	volume.addEventListener('change', setVolume);
 
 	muteBtn.addEventListener('click', toggleMute);
-
-	function selectCurrentTrack() {
-		track.forEach((item) => {
-			const play = item.querySelector('.tracklist__play');
-			item.classList.remove('tracklist__track--active');
-			play.classList.remove('mdi-pause');
-			play.classList.add('mdi-play');
-		});
-		track[songIndex].classList.add('tracklist__track--active');
-	}
 
 	burger.addEventListener('click', () => {
 		sideNav.classList.add('active');
