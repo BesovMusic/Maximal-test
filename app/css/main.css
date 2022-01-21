@@ -309,16 +309,23 @@ body {
       display: flex;
       align-items: center; }
   .player__volume {
-    height: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     width: 50px;
-    background-color: #4d21ab;
+    height: 4px;
     border-radius: 2px;
+    background: #4d21ab;
+    overflow: hidden;
     cursor: pointer; }
-    .player__volume--line {
-      height: 100%;
-      width: 100%;
-      border-radius: 2px;
-      background-color: #8f5aff; }
+    .player__volume::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 10px;
+      width: 1px;
+      background: #8f5aff;
+      cursor: pointer;
+      box-shadow: -400px 0 0 400px #8f5aff; }
 
 @media (max-width: 1180px) {
   .main-nav__search-wrapper {
@@ -477,4 +484,23 @@ body {
   .player__title, .player__artist {
     overflow: hidden;
     text-overflow: ellipsis; } }
+
+.player__dur {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: #4d21ab;
+  overflow: hidden;
+  cursor: pointer; }
+  .player__dur::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 10px;
+    width: 1px;
+    background: #8f5aff;
+    cursor: pointer;
+    box-shadow: -400px 0 0 400px #8f5aff; }
 
