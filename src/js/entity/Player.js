@@ -23,18 +23,19 @@ export default class Player {
 		if (track === undefined) {
 			throw new Error('Трек не найден');
 		}
+		this.currentTrack.stop();
 		this.setCurrentTrack(track);
 	}
 
-	next(id) {
+	next(i) {
 		this.currentTrack.stop();
-		this.choiсeTrack(id);
+		this.currentTrack = this.tracks[i];
 		this.currentTrack.play();
 	}
 
-	prev(id) {
+	prev(i) {
 		this.currentTrack.stop();
-		this.choiсeTrack(id);
+		this.currentTrack = this.tracks[i];
 		this.currentTrack.play();
 	}
 }

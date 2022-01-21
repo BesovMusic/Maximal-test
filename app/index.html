@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
 		<title>Maximal Test</title>
+		<link rel="icon" type="image/x-icon" href="a9f423bd303135f01806.ico">
 	<script defer="defer" src="js/main.js"></script><link href="css/main.css" rel="stylesheet"></head>
 	<body>
 		<header class="header">
@@ -71,35 +72,12 @@
 						<h2>Новые треки</h2>
 						<button class="top-songs__more btn-more">Еще</button>
 					</div>
-					<div class="tracklist">
-						<!-- <div class="tracklist__track">
-							<div class="tracklist__left">
-								<button
-									class="tracklist__play mdi mdi-play"
-								></button>
-								<div class="tracklist__info">
-									<span class="tracklist__author"
-										>Дима Лелюк и Локви</span
-									>
-									<span class="tracklist__track-name"
-										>Нас нет
-									</span>
-								</div>
-							</div>
-							<div class="tracklist__right">
-								<span class="tracklist__duration">02:49</span>
-								<button
-									class="tracklist__download mdi mdi-download"
-								></button>
-							</div>
-						</div> -->
-					</div>
+					<div class="tracklist"></div>
 				</div>
 			</main>
 		</div>
 
 		<div class="player">
-			<audio src="ade396ac29e54d4f81d7.mp3" id="audio"></audio>
 			<div class="player__wrapper">
 				<div class="player__nav">
 					<button class="player-btn player__prev mdi mdi-skip-previous" id="prev"></button>
@@ -125,9 +103,7 @@
 					<button class="player__repeat mdi mdi-repeat"></button>
 					<button class="player__shuffle mdi mdi-shuffle-variant"></button>
 					<button class="player__volume-btn mdi mdi-volume-high"></button>
-					<div class="player__volume">
-						<div class="player__volume--line"></div>
-					</div>
+					<input type="range" class="player__volume" value="1" min="0" max="1" step="0.1">
 				</div>
 			</div>
 		</div>
