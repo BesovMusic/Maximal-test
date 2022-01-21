@@ -85,17 +85,6 @@ module.exports = {
 					},
 				},
 			},
-			{
-				test: /\.json$/i,
-				type: 'asset/resource',
-				generator: {
-					filename: () => {
-						return isDev
-							? '[name][ext]'
-							: '[name].[contenthash][ext]';
-					},
-				},
-			},
 		],
 	},
 };
