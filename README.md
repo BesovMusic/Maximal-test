@@ -4,7 +4,7 @@
 
 ![](Muztv.jpg)
 
-### Приложение доступно для просмотра по [ссылке](https://besovmusic.github.io/Maximal-text/app/)
+### Приложение доступно для просмотра по [ссылке](https://besovmusic.github.io/Maximal-test/app/)
 
 ---
 
