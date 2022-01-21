@@ -44,6 +44,7 @@ import Player from './entity/Player';
 	function addTrack(track) {
 		const creatingTrack = document.createElement('div');
 		creatingTrack.classList.add('tracklist__track');
+		creatingTrack.setAttribute('data-id', track.id);
 		creatingTrack.innerHTML = `<div class="tracklist__left">
 				<button class="tracklist__play mdi mdi-play"></button>
 				<div class="tracklist__info">
@@ -167,7 +168,7 @@ import Player from './entity/Player';
 			} else {
 				songIndex = i;
 				loadSong(songs[songIndex]);
-				player.choiсeTrack(songIndex);
+				player.choiсeTrack(item.dataset.id);
 				playSong();
 			}
 		});
